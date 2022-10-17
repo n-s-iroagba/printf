@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 	int i = 0, len = 0, k, j, counter = 0;	
 	char *dest = NULL;
 	char *argStr;
-	
+
 	while (format[len] != '\0')
 		len++;
 

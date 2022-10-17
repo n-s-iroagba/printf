@@ -1,8 +1,8 @@
-include "main.h"
+#include "main.h"
 
 char *convert(int num, int base)
 {
-    static char Representation = "0123456789ABCDEF";
+    static char *Representation = "0123456789ABCDEF";
     static char buffer[50];
     char *ptr;
     ptr = &buffer[49];

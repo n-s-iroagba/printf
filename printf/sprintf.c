@@ -1,6 +1,6 @@
 #include "main.h"
 
-void _sprintf(const char *str)
+void _sprintf(char *str)
 {
 	int i, len = 0;
 	char *newstr = NULL;
