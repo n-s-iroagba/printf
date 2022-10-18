@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+* _sprintf -	Prints a string
+* @str:			String to be printed
+* Return:		Returns nothing
+*/
+
 void _sprintf(char *str)
 {
 	int i, len = 0;
@@ -13,7 +19,7 @@ void _sprintf(char *str)
 	newstr = malloc(sizeof(char) * (len + 1));
 
 	if (newstr == NULL)
-		exit (1);
+		exit(1);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -22,4 +28,4 @@ void _sprintf(char *str)
 	newstr[i] = '\0';
 	write(1, newstr, len);
 	free(newstr);
-        }
+}

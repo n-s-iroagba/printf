@@ -5,13 +5,13 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, len = 0, k, j, counter = 0;	
+	int i = 0, len = 0, k, j, counter = 0;
 	char *dest = NULL;
 	char *argStr;
-        int num;
-    	while (format[len] != '\0')
-		len++;
+	int num;
 
+	while (format[len] != '\0')
+		len++;
 
 	dest = malloc(sizeof(char) * len);
 	if (dest == NULL)
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 		{
 			argStr = malloc(sizeof(char) * 2);
 			argStr[0] = '%';
-			argStr[1] = '\0';  
+			argStr[1] = '\0'; 
 			_count(&counter, argStr);
 			_sprintf(argStr);
 			free(argStr);
@@ -43,9 +43,9 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			argStr = va_arg(ap, char *);
-            		_count(&counter, argStr);
-            		_sprintf(argStr);
-            		i += 2;
+			_count(&counter, argStr);
+			_sprintf(argStr);
+			i += 2;
 		}
 		else if (format[i] == '%' && format[i + 1] == 'i')
 		{
@@ -63,34 +63,31 @@ int _printf(const char *format, ...)
 			free(argStr);
 			i += 2;
 		}
-                else if (format[i] == '%' && format[i + 1] == 'o')
-                {
-                       num = va_arg(ap,int);
-                        argStr = convert(num,8);
-                        _count(&counter, argStr);
-                        _sprintf(argStr);
-                        i += 2;
-                }
-                
-               else if (format[i] == '%' && format[i + 1] == 'b')
-                {
-                       num = va_arg(ap,int);
-                        argStr = convert(num,2);
-                        _count(&counter, argStr);
-                        _sprintf(argStr);
-                        i += 2;
-                }
-                
-                else if (format[i] == '%' && format[i + 1] == 'u')
-                {
-                       num = va_arg(ap,unsigned int);
-                        argStr = convert(num,10);
-                        _count(&counter, argStr);
-                        _sprintf(argStr);
-                        i += 2;
-                }
-                 
-                else if (format[i] == '%' && format[i + 1] == 'X')
+		 else if (format[i] == '%' && format[i + 1] == 'o')
+		{
+			num = va_arg(ap,int);
+			argStr = convert(num,8);
+			_count(&counter, argStr);
+			_sprintf(argStr);
+			i += 2;
+		}
+		else if (format[i] == '%' && format[i + 1] == 'b')
+		{
+			num = va_arg(ap,int);
+			argStr = convert(num,2);
+			_count(&counter, argStr);
+			_sprintf(argStr);
+			i += 2;
+		}
+		 else if (format[i] == '%' && format[i + 1] == 'u')
+        {
+			num = va_arg(ap,unsigned int);
+			argStr = convert(num,10);
+			_count(&counter, argStr);
+			_sprintf(argStr);
+			i += 2;
+		}
+		else if (format[i] == '%' && format[i + 1] == 'X')
                 {
                        num = va_arg(ap,int);
                         argStr = convert(num,16);

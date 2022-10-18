@@ -1,9 +1,16 @@
 #include "main.h"
 
+/**
+* _itoa -	Converts an integer to string
+* @num:		The number to be converted
+* Return:	The string format of an int
+*/
+
 char *_itoa(int num)
 {
 	char *str;
 	int i = 1, m, k = 0, len, power, keep;
+
 	len = num < 0 ? 3 : 2;
 	k = num < 0 ? 1 : 0;
 	num *= num < 0 ? -1 : 1;
@@ -21,7 +28,7 @@ char *_itoa(int num)
 	str = malloc(sizeof(char) * len);
 	if (str == NULL)
 	{
-		exit (1);
+		exit(1);
 	}
 	else if (k == 1)
 	{

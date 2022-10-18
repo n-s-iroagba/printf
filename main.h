@@ -12,4 +12,6 @@ int _printf(const char *format, ...);
 void _count(int *ptr, char *str);
 char *_itoa(int num);
 char *convert(int num, int base);
-#endif
+char *_convert(int num, int base);
+
+#endif /* PRINTF_H */
